@@ -15,3 +15,25 @@ Synopsis
     <% snippet_id = 26 %>
     <%= render_snippet(snippet_id) %> 
 
+Installation
+------------
+
+To install this extension:
+
+    script/extension install git://github.com/cmaujean/spree-snippets.git
+    rake db:migrate
+
+Snippet CRUD
+------------
+
+1. Login to the Administration Console
+2. Click on the Configuration Tab
+3. Click on the Snippets link
+
+Snippet Use
+-----------
+
+In your view, use:
+
+    <%= render_snippet(id or snippet or slug) %>
+
