@@ -1,0 +1,28 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%=t("ext_snippets_snippets") %></h1>
+
+<table class="admin-report" width="545">
+	<thead>
+		<tr>
+      		<th><%=t("ext_snippets_slug")%></th>
+      		<th><%=t("action")%></th>
+    	</tr>
+  	</thead>
+	
+	<tbody>
+    	<% @snippets.each do |snippet| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td>
+				<%= snippet.slug%>
+			</td>
+			<td>
+	          <%=link_to t("edit"), edit_object_url(snippet) %> |
+	          <%=link_to t("delete"), object_url(snippet), :method => :delete %>
+	        </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to t("ext_snippets_new_snippet"), new_object_url %>

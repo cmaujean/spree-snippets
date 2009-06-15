@@ -1,0 +1,28 @@
+<% content_for :head do %>
+
+	<%= javascript_include_tag 'jquery/jquery.js' %>
+	<%= javascript_include_tag 'wymeditor/jquery.wymeditor.pack.js' %>
+	
+	<script type="text/javascript" charset="utf-8">
+		
+		var $j = jQuery.noConflict();
+		$j(function() {
+			$j('.wymeditor').wymeditor({
+		        xhtmlParser: 'xhtml_parser.js',
+		        cssParser:   'wym_css_parser.js'
+		    });
+		});
+		
+	</script>
+<% end %>
+
+<table class="admin-report" width="545">
+  <tr>
+    <td valign="top"><%=t("ext_snippets_slug")%>:</td>
+    <td><%= f.text_field :slug, {"style" => "width:500px"} %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%=t("ext_snippets_content")%>:</td>
+    <td><%= f.text_area :content, {"style" => "width:500px; height:500px;", "class"=> "wymeditor"} %> </td>
+  </tr>
+</table>

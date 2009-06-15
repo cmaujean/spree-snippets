@@ -1,0 +1,12 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%= t("ext_snippets_new_snippet") %></h1>
+
+<%= error_messages_for :snippet %>
+
+<% form_for(:snippet, :url => collection_url) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p>
+    <%= submit_tag t("create"), {"class" => "wymupdate"}%> or <%= link_to t("cancel"), admin_snippets_path%>
+  </p>
+<% end %>

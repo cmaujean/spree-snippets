@@ -1,0 +1,8 @@
+---
+en-US:
+    ext_snippets_snippets: Snippets
+    ext_snippets_snippets_desc: Manage snippets with WYM editor.
+    ext_snippets_slug: Slug
+    ext_snippets_content: Content
+    ext_snippets_new_snippet: New snippet
+    ext_snippets_editing_snippet: Editing snippet
