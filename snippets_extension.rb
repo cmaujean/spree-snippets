@@ -14,7 +14,6 @@ class SnippetsExtension < Spree::Extension
   # end
   
   def activate
-    #admin.tabs.add "Snippets", "/admin/snippets", :after => "Layouts", :visibility => [:all]
     Admin::ConfigurationsController.class_eval do
       before_filter :add_snippets_links, :only => :index
 
