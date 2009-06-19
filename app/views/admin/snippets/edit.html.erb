@@ -1,6 +1,6 @@
 <%= render :partial => 'admin/shared/configuration_menu' %>
 
-<h1><%= t("ext_snippets_editing_snippet") %></h1>
+<h1><%= t("editing_snippet") %></h1>
 <%= error_messages_for :snippet %>
 
 <% form_for(:snippet, :url => object_url, :html => { :method => :put }) do |f| -%>
