@@ -4,7 +4,7 @@ class SnippetsExtension < Spree::Extension
   url "http://github.com/cmaujean/spree-snippets"
   
   # Developer will embed calls to render specific snippet slugs or ids
-  # in any view. Admin will be able to control content via /admin/snippets.
+  # in any view. Admin will control content via /admin/snippets.
 
 
   # Please use snippets/config/routes.rb instead for extension routes.
@@ -14,15 +14,12 @@ class SnippetsExtension < Spree::Extension
   # end
   
   def activate
-    Admin::ConfigurationsController.class_eval do
-      before_filter :add_snippets_links, :only => :index
 
-      def add_snippets_links
-        @extension_links << {
-          :link => admin_pages_path,
-          :link_text => t('ext_snippets_snippets'),
-          :description => t('ext_snippets_snippets_desc')
-        }
+    Admin::BaseController.class_eval do 
+      before_filter :add_snippets_tab
+      
+      def add_snippets_tab
+        @extension_tabs << [ :snippets, { :label => "Snippets" } ]
       end
     end
     
