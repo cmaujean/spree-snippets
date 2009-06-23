@@ -1,6 +1,6 @@
 ---
 en-US:
-  snippets_title: "Snippets"
+  snippets: "Snippets"
   snippets_desc: "Manage snippets with WYM editor."
   snippets_slug: "Slug"
   snippets_content: "Content"

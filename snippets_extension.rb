@@ -19,7 +19,7 @@ class SnippetsExtension < Spree::Extension
       before_filter :add_snippets_tab
       
       def add_snippets_tab
-        @extension_tabs << [ :snippets, { :label => "Snippets" } ]
+        @extension_tabs << [ :snippets ]
       end
     end
     
