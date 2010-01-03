@@ -7,14 +7,6 @@ class SnippetsExtension < Spree::Extension
   # in any view. Admin will control content via /admin/snippets.
   def activate
 
-    Admin::BaseController.class_eval do 
-      before_filter :add_snippets_tab
-      
-      def add_snippets_tab
-        @extension_tabs << [ :snippets ]
-      end
-    end
-    
     Spree::BaseController.class_eval do
 
       helper_method :render_snippet
