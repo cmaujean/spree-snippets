@@ -43,5 +43,18 @@ class SnippetsExtension < Spree::Extension
       end
     end
 
+    if not defined?(Spree::ThemeSupport)
+      Admin::ConfigurationsController.class_eval do
+        before_filter :add_snippets_links, :only => :index
+ 
+        def add_snippets_links
+          @extension_links << {
+            :link => admin_snippets_path,
+            :link_text => t('ext_snippets'),
+            :description => t('ext_snippets_desc')
+          }
+        end
+      end
+    end
   end
 end
