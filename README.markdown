@@ -20,6 +20,7 @@ Installation
 
 To install this extension:
 
+    script/extension install git://github.com/azimuth/spree-wymeditor.git
     script/extension install git://github.com/cmaujean/spree-snippets.git
     rake db:migrate
 
