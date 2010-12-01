@@ -1,10 +1,7 @@
 <% content_for :head do %>
-
-	<%= javascript_include_tag 'jquery/jquery.js' %>
-	<%= javascript_include_tag 'wymeditor/jquery.wymeditor.pack.js' %>
+	<%= javascript_include_tag 'wymeditor/jquery.wymeditor.min.js' %>
 	
 	<script type="text/javascript" charset="utf-8">
-		
 		var $j = jQuery.noConflict();
 		$j(function() {
 			$j('.wymeditor').wymeditor({
@@ -12,7 +9,6 @@
 		        cssParser:   'wym_css_parser.js'
 		    });
 		});
-		
 	</script>
 <% end %>
 
@@ -23,6 +19,6 @@
   </tr>
   <tr>
     <td valign="top"><%=t("snippets_content")%>:</td>
-    <td><%= f.text_area :content, {"style" => "width:500px; height:500px;", "class"=> "wymeditor"} %> </td>
+    <td><%= f.text_area :content, {"style" => "width:500px; height:300px;", "class"=> "wymeditor"} %> </td>
   </tr>
 </table>

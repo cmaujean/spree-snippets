@@ -1,28 +1,32 @@
 <%= render :partial => 'admin/shared/configuration_menu' %>
 
+<div class='toolbar'>
+  <ul class='actions'>
+    <li id="new_product_link">
+      <%= button_link_to t("new_snippet"), new_object_url, {:icon => 'add'} %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
 <h1><%=t("snippets") %></h1>
 
-<table class="admin-report" width="545">
-	<thead>
-		<tr>
-      		<th><%=t("snippets_slug")%></th>
-      		<th><%=t("action")%></th>
-    	</tr>
-  	</thead>
-	
+<table class="index">
+	<tr>
+		<th><%=t("snippets_slug")%></th>
+		<th><%=t("action")%></th>
+  </tr>
 	<tbody>
     	<% @snippets.each do |snippet| %>
-		<tr class="<%= cycle('even', 'odd') %>">
+		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id snippet %>">
 			<td>
-				<%= snippet.slug%>
+				<%= snippet.slug %>
 			</td>
 			<td>
-	          <%=link_to t("edit"), edit_object_url(snippet) %> |
-	          <%=link_to t("delete"), object_url(snippet), :method => :delete %>
-	        </td>
+        <%= link_to_edit snippet %> &nbsp;
+        <%= link_to_delete snippet %>
+	    </td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-
-<%= link_to t("new_snippet"), new_object_url %>
