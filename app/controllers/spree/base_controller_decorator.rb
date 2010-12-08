@@ -1,4 +1,4 @@
-Spree::BaseController.class_eval do
+ActionController::Base.class_eval do
   include ActionView::Helpers::RawOutputHelper
 
   helper_method :render_snippet
