@@ -1,5 +1,4 @@
----
-ru-RU:
+ru:
   snippets: "Тексты"
   snippets_desc: "Управление текстами из админки через WYM editor"
   snippets_slug: "Код"
