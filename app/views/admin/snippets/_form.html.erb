@@ -1,24 +1,29 @@
-<% content_for :head do %>
-	<%= javascript_include_tag 'wymeditor/jquery.wymeditor.min.js' %>
-	
-	<script type="text/javascript" charset="utf-8">
-		var $j = jQuery.noConflict();
-		$j(function() {
-			$j('.wymeditor').wymeditor({
-		        xhtmlParser: 'xhtml_parser.js',
-		        cssParser:   'wym_css_parser.js'
-		    });
-		});
-	</script>
-<% end %>
+<style type="text/css" media="screen">
+	.snippet-form-bottom-buttons {
+		margin-left: 5px;
+		margin-bottom: 20px;
+	}
+</style>
+
+<%= rich_editor(:id => 'snippet_content', :object => @snippet) %>
 
 <table class="admin-report" width="545">
   <tr>
     <td valign="top"><%=t("snippets_slug")%>:</td>
-    <td><%= f.text_field :slug, {"style" => "width:500px"} %></td>
+    <td><%= f.text_field :slug, {"style" => "width: 745px"} %></td>
   </tr>
   <tr>
-    <td valign="top"><%=t("snippets_content")%>:</td>
-    <td><%= f.text_area :content, {"style" => "width:500px; height:300px;", "class"=> "wymeditor"} %> </td>
+		<td colspan="2">
+			<%= f.text_area :content %>
+		</td>
   </tr>
 </table>
+
+<div class="snippet-form snippet-form-bottom-buttons">
+	<div class="button" id="snippet_content_switch_simple">
+		<a href="#"><%= t("editor.switch_simple") %></a>
+	</div>
+	<div class="button" id="snippet_content_switch_rich" style="display: none;">
+		<a href="#"><%= t("editor.switch_rich") %></a>
+	</div>
+</div>
