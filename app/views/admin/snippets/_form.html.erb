@@ -5,8 +5,6 @@
 	}
 </style>
 
-<%= rich_editor(:id => 'snippet_content', :object => @snippet) %>
-
 <table class="admin-report" width="545">
   <tr>
     <td valign="top"><%=t("snippets_slug")%>:</td>
@@ -27,3 +25,5 @@
 		<a href="#"><%= t("editor.switch_rich") %></a>
 	</div>
 </div>
+
+<%= rich_editor(:id => 'snippet_content', :object => @snippet) %>
