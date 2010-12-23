@@ -1,7 +1,9 @@
-Snippets
-========
+Snippets - Compatible with Spree 0.30+
+======================================
 
 Admin configurable chunks of content that can be rendered in any view via the SnippetsHelper#render_snippet method.
+
+note: the 0.11 compatible version is on the 0.11stable branch.
 
 Synopsis
 --------
