@@ -1,4 +1,4 @@
-Snippets
+Snippets - Compatible with Spree 0-11-stable
 ========
 
 Admin configurable chunks of content that can be rendered in any view via the SnippetsHelper#render_snippet method.
