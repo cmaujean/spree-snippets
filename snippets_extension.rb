@@ -20,12 +20,10 @@ class SnippetsExtension < Spree::Extension
           @snippet = Snippet.find(snippet)
         elsif snippet.kind_of?(String)
           @snippet = Snippet.find_by_slug(snippet)
-        else
-          raise "Unable to handle snippet '#{snippet}'"
         end 
-        raise "Snippet '#{snippet}' not found" if @snippet.nil?
+        return "" if @snippet.nil?
         template = ERB.new File.read(File.expand_path(snippet_wrapper_absolute_path))
-        template.result(binding)
+        return template.result(binding)
       end
       
       private
@@ -43,18 +41,5 @@ class SnippetsExtension < Spree::Extension
       end
     end
 
-    if not defined?(Spree::ThemeSupport)
-      Admin::ConfigurationsController.class_eval do
-        before_filter :add_snippets_links, :only => :index
- 
-        def add_snippets_links
-          @extension_links << {
-            :link => admin_snippets_path,
-            :link_text => t('ext_snippets'),
-            :description => t('ext_snippets_desc')
-          }
-        end
-      end
-    end
   end
 end
