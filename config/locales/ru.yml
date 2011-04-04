@@ -1,0 +1,7 @@
+ru:
+  snippets: "Тексты"
+  snippets_desc: "Управление текстами из админки через WYM editor"
+  snippets_slug: "Код"
+  snippets_content: "Содержимое"
+  new_snippet: "Новый текст"
+  editing_snippet: "Редактирование текста"

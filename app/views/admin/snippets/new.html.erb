@@ -2,11 +2,12 @@
 
 <h1><%= t("new_snippet") %></h1>
 
-<%= error_messages_for :snippet %>
+<%= render "shared/error_messages", :target => @snippet %>
 
 <% form_for(:snippet, :url => collection_url) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
-  <p>
-    <%= submit_tag t("create"), {"class" => "wymupdate"}%> or <%= link_to t("cancel"), admin_snippets_path%>
+	<p class="form-buttons">
+    <%= button t("actions.create"), nil, 'submit' %>
+    <%= t("or") %> <%= link_to t("actions.cancel"), collection_url %>
   </p>
 <% end %>

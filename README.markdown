@@ -1,9 +1,9 @@
-Snippets - Compatible with Spree 0-11-stable
-========
+Snippets - Compatible with Spree 0.30+
+======================================
 
 Admin configurable chunks of content that can be rendered in any view via the SnippetsHelper#render_snippet method.
 
-note: the 0.30 compatible version can be found in the 0.30 branch
+note: the 0.11 compatible version is on the 0.11stable branch.
 
 Synopsis
 --------
@@ -20,10 +20,12 @@ Synopsis
 Installation
 ------------
 
-To install this extension:
+Add to Gemfile:
+    gem 'spree_snippets', :git => 'git://github.com/divineforest/spree-snippets.git'
 
-    script/extension install git://github.com/azimuth/spree-wymeditor.git
-    script/extension install git://github.com/cmaujean/spree-snippets.git
+Run:
+    bundle install
+    rake spree_snippets:install
     rake db:migrate
 
 Snippet CRUD
@@ -32,11 +34,3 @@ Snippet CRUD
 1. Login to the Administration Console
 2. Click on the Configuration Tab
 3. Click on the Snippets link
-
-Snippet Use
------------
-
-In your view, use:
-
-    <%= render_snippet(id or snippet or slug) %>
-

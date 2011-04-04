@@ -1,5 +1,9 @@
-# Put your extension routes here.
-
- map.namespace :admin do |admin|
-   admin.resources :snippets
- end  
+Rails.application.routes.draw do
+  namespace :admin do
+    resources :snippets do
+      collection do
+        get :create_draft
+      end
+    end
+  end
+end
