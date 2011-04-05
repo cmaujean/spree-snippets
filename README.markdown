@@ -21,7 +21,7 @@ Installation
 ------------
 
 Add to Gemfile:
-    gem 'spree_snippets', :git => 'git://github.com/divineforest/spree-snippets.git'
+    gem 'spree_snippets', ">= 0.5.1"
 
 Run:
     bundle install
