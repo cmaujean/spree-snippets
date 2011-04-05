@@ -15,7 +15,12 @@ ActionController::Base.class_eval do
     else
       raise "Unable to handle snippet '#{snippet}'"
     end 
-    raise "Snippet '#{snippet}' not found" if @snippet.nil?
+
+    if Spree::Config[:spree_snippets_raise_on_missing] == "t" && @snippet.nil? 
+	    raise "Snippet '#{snippet}' not found"
+    end
+    return nil unless @snippet
+
     template = ERB.new File.read(File.expand_path(snippet_wrapper_absolute_path))
     raw template.result(binding)
   end
