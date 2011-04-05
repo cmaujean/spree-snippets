@@ -12,7 +12,7 @@
   </tr>
   <tr>
 		<td colspan="2">
-			<%= f.text_area :content %>
+			<%= f.text_area :content, {"style" => "width:100%", "id" => "snippet_content"} %>
 		</td>
   </tr>
 </table>
@@ -26,4 +26,3 @@
 	</div>
 </div>
 
-<%= rich_editor(:id => 'snippet_content', :object => @snippet) %>
