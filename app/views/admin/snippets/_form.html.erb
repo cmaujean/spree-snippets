@@ -1,28 +1,6 @@
-<style type="text/css" media="screen">
-	.snippet-form-bottom-buttons {
-		margin-left: 5px;
-		margin-bottom: 20px;
-	}
-</style>
+<%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
 
-<table class="admin-report" width="545">
-  <tr>
-    <td valign="top"><%=t("snippets_slug")%>:</td>
-    <td><%= f.text_field :slug, {"style" => "width: 745px"} %></td>
-  </tr>
-  <tr>
-		<td colspan="2">
-			<%= f.text_area :content, {"style" => "width:100%", "id" => "snippet_content"} %>
-		</td>
-  </tr>
-</table>
-
-<div class="snippet-form snippet-form-bottom-buttons">
-	<div class="button" id="snippet_content_switch_simple">
-		<a href="#"><%= t("editor.switch_simple") %></a>
-	</div>
-	<div class="button" id="snippet_content_switch_rich" style="display: none;">
-		<a href="#"><%= t("editor.switch_rich") %></a>
-	</div>
-</div>
-
+<%= f.inputs do %>
+  <%= f.input :slug %>
+  <%= f.input :content, :as => :text %>
+<% end %>

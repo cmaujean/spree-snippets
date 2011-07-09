@@ -1,5 +1,6 @@
 require 'spree_core'
 require 'spree_snippets_hooks'
+require 'formtastic'
 
 module SpreeSnippets
   class Engine < Rails::Engine
