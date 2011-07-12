@@ -4,7 +4,7 @@
 
 <%= render "shared/error_messages", :target => @snippet %>
 
-<% form_for(:snippet, :url => collection_url) do |f| %>
+<%= semantic_form_for(:snippet, :url => collection_url) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 	<p class="form-buttons">
     <%= button t("actions.create"), nil, 'submit' %>
