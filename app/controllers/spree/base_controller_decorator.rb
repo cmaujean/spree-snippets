@@ -1,5 +1,5 @@
 ActionController::Base.class_eval do
-  include ActionView::Helpers::RawOutputHelper
+  include ActionView::Helpers::OutputSafetyHelper
 
   helper_method :render_snippet
 
