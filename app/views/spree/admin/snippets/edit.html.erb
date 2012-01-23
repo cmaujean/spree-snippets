@@ -1,8 +1,8 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <h1><%= t("editing_snippet") %></h1>
 
-<%= render "shared/error_messages", :target => @snippet %>
+<%= render "spree/shared/error_messages", :target => @snippet %>
 
 <%= semantic_form_for(:snippet, :url => object_url, :html => { :method => :put }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>

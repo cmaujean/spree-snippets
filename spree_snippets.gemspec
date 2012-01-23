@@ -17,7 +17,11 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '>= 0.60.1')
+  s.add_dependency 'spree_core', '>= 1.0.0.beta'
   s.add_dependency(%q<spree_editor>, [">= 0.50.0"])
-  s.add_dependency(%q<formtastic>, ["~> 1.2.3"])
+  s.add_dependency(%q<formtastic>, [">= 2.0.2"])
+
+  s.add_development_dependency 'factory_girl'
+  s.add_development_dependency 'rspec-rails',  '~> 2.8.0.rc1'
+  s.add_development_dependency 'sqlite3'
 end

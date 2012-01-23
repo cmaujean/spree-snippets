@@ -1,28 +1,25 @@
-ActionController::Base.class_eval do
-  include ActionView::Helpers::RawOutputHelper
+module Spree::SnippetHelper
 
-  helper_method :render_snippet
-
-  # snippet can be something that responds to "slug" and "content", 
+  # snippet can be something that responds to "slug" and "content",
   # or a slug, or an id
   def render_snippet(snippet)
-    if snippet.respond_to?('content')  
+    if snippet.respond_to?('content')
       @snippet = snippet
     elsif snippet.kind_of?(Fixnum)
-      @snippet = Snippet.find(snippet)
+      @snippet = Spree::Snippet.find(snippet)
     elsif snippet.kind_of?(String)
-      @snippet = Snippet.find_by_slug(snippet)
+      @snippet = Spree::Snippet.find_by_slug(snippet)
     else
       raise "Unable to handle snippet '#{snippet}'"
-    end 
+    end
 
-    if Spree::Config[:spree_snippets_raise_on_missing] == "t" && @snippet.nil? 
+    if @snippet.nil?
 	    raise "Snippet '#{snippet}' not found"
     end
     return nil unless @snippet
 
     template = ERB.new File.read(File.expand_path(snippet_wrapper_absolute_path))
-    raw template.result(binding)
+    template.result(binding).html_safe
   end
 
   private
@@ -40,6 +37,7 @@ ActionController::Base.class_eval do
 
   # Override the location returned by this method if you want your own snippet wrapper template
   def snippet_wrapper_path
-    'app/views/snippets/_snippet.html.erb'
+    'app/views/spree/snippets/_snippet.html.erb'
   end
+
 end

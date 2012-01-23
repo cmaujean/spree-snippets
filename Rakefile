@@ -1,31 +1,20 @@
-require File.expand_path('../../config/application', __FILE__)
-
-require 'rubygems'
-require 'rake'
-require 'rake/testtask'
-require 'rake/packagetask'
-require 'rake/gempackagetask'
-
-spec = eval(File.read('spree_snippets.gemspec'))
-
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-end
-
-desc "Release to gemcutter"
-task :release => :package do
-  require 'rake/gemcutter'
-  Rake::Gemcutter::Tasks.new(spec).define
-  Rake::Task['gem:push'].invoke
-end
-
-desc "Default Task"
-task :default => [ :spec ]
+# encoding: utf-8
 
 require 'rspec/core/rake_task'
+require 'spree/core/testing_support/common_rake'
+
+Bundler::GemHelper.install_tasks
+Bundler.setup
+
 RSpec::Core::RakeTask.new
 
-# require 'cucumber/rake/task'
-# Cucumber::Rake::Task.new do |t|
-#   t.cucumber_opts = %w{--format pretty}
-# end
+desc "Default Task"
+task :default => [:spec]
+
+desc "Generates a dummy app for testing"
+task :test_app do
+  ENV['LIB_NAME'] = 'spree/api'
+  Rake::Task['common:test_app'].invoke
+  system("rails g spree_snippets:install")
+  system("bundle exec rake db:migrate RAILS_ENV=test AUTO_ACCEPT=true")
+end
