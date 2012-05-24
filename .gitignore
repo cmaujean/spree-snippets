@@ -1,1 +1,5 @@
 .DS_Store
+spec/dummy
+spec/test_app
+Gemfile.lock
+*.swp

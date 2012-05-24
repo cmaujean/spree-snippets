@@ -25,7 +25,7 @@ Add to Gemfile:
 
 Run:
     bundle install
-    rake spree_snippets:install
+    rails g spree_snippets:install
     rake db:migrate
 
 Snippet CRUD
@@ -34,6 +34,16 @@ Snippet CRUD
 1. Login to the Administration Console
 2. Click on the Configuration Tab
 3. Click on the Snippets link
+
+Testing
+------------
+
+1. bundle exec rake test_app
+2. bundle exec rake
+
+Or
+
+2. bundle exec rspec spec/models/spree/snippet_spec.rb for test individual file
 
 Snippet Settings
 ----------------
