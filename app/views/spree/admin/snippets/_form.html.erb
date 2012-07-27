@@ -1,6 +1,5 @@
-<%= stylesheet_link_tag 'formtastic' %>
+<%= f.label :slug %>:<br />
+<%= f.text_field :slug %><br />
 
-<%= f.inputs do %>
-  <%= f.input :slug %>
-  <%= f.input :content, :as => :text %>
-<% end %>
+<%= f.label :content %>:<br />
+<%= f.text_area :content %><br />

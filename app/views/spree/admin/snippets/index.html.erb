@@ -14,6 +14,7 @@
 <table class="index">
 	<tr>
 		<th><%=t("snippets_slug")%></th>
+		<th><%=t("contents")%></th>
 		<th><%=t("action")%></th>
   </tr>
 	<tbody>
@@ -21,6 +22,9 @@
 		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id snippet %>">
 			<td>
 				<%= snippet.slug %>
+			</td>
+			<td>
+				<%= snippet.content %>
 			</td>
 			<td>
         <%= link_to_edit snippet %> &nbsp;
