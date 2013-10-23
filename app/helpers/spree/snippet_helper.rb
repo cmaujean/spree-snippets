@@ -2,7 +2,7 @@ module Spree::SnippetHelper
 
   # snippet can be something that responds to "slug" and "content",
   # or a slug, or an id
-  def render_snippet(snippet)
+  def render_text_snippet(snippet)
     if snippet.respond_to?('content')
       @snippet = snippet
     elsif snippet.kind_of?(Fixnum)
