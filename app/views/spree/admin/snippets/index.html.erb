@@ -1,32 +1,33 @@
+<% content_for :page_title do %>
+  <%= Spree.t :snippets %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_snippet), new_admin_snippet_path, :icon => 'icon-plus' %>
+<% end %>
+
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<div class='toolbar'>
-  <ul class='actions'>
-    <li id="new_product_link">
-      <%= button_link_to t("new_snippet"), create_draft_admin_snippets_url, {:icon => 'add'} %>
-    </li>
-  </ul>
-  <br class='clear' />
-</div>
-
-<h1><%=t("snippets") %></h1>
-
 <table class="index">
-	<tr>
-		<th><%=t("snippets_slug")%></th>
-		<th><%=t("action")%></th>
-  </tr>
-	<tbody>
-    	<% @snippets.each do |snippet| %>
-		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id snippet %>">
-			<td>
-				<%= snippet.slug %>
-			</td>
-			<td>
-        <%= link_to_edit snippet %> &nbsp;
-        <%= link_to_delete snippet %>
-	    </td>
-		</tr>
-		<% end %>
-	</tbody>
+  <colgroup>
+    <col style='width: 88%'></col>
+    <col style='width: 12%'></col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= Spree::Snippet.human_attribute_name :slug %></th>
+      <th class='actions'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snippets.each do |snippet| %>
+      <tr class="<%= cycle 'even', 'odd' %>" id="<%= spree_dom_id snippet %>">
+        <td><%= snippet.slug %></td>
+        <td class='actions'>
+          <%= link_to_edit snippet, :no_text => true %>
+          <%= link_to_delete snippet, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

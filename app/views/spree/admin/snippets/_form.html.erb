@@ -1,6 +1,16 @@
-<%= stylesheet_link_tag 'formtastic' %>
-
-<%= f.inputs do %>
-  <%= f.input :slug %>
-  <%= f.input :content, :as => :text %>
-<% end %>
+<div class='row'>
+  <div class='alpha six columns'>
+  <fieldset class='no-border-bottom no-border-top'>
+    <%= f.field_container :slug do %>
+      <%= f.label :slug %> <span class='required'>*</span><br />
+      <%= f.text_field :slug, :class => 'fullwidth' %>
+      <%= f.error_message_on :slug %>
+    <% end %>
+    <%= f.field_container :content do %>
+      <%= f.label :content %>
+      <%= f.text_area :content, :class => 'fullwidth', :rows => 10 %>
+      <%= f.error_message_on :content %>
+    <% end %>
+  </fieldset>
+  </div>
+</div>

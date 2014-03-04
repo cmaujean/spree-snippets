@@ -1,13 +1,16 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<% content_for :page_title do %>
+  <%= Spree.t :new_snippet %>
+<% end %>
 
-<h1><%= t("new_snippet") %></h1>
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:back), admin_snippets_path, :icon => 'icon-arrow-left' %>
+<% end %>
+
+<%= render 'spree/admin/shared/configuration_menu' %>
 
 <%= render "spree/shared/error_messages", :target => @snippet %>
 
-<%= semantic_form_for(:snippet, :url => collection_url) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-	<p class="form-buttons">
-    <%= button t("actions.create"), nil, 'submit' %>
-    <%= t("or") %> <%= link_to t("actions.cancel"), collection_url %>
-  </p>
+<%= form_for [:admin, @snippet] do |f| %>
+  <%= render 'form', :f => f %>
+	<%= render 'spree/admin/shared/new_resource_links' %>
 <% end %>
